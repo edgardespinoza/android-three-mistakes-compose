@@ -8,15 +8,12 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun LoginScreen(viewModel: MainViewModel) {
-    val scope = rememberCoroutineScope()
-    Box{
+    Box {
         Button(
             onClick = {
-                scope.launch {
-                    viewModel.login()
-                }
+                viewModel.login()
             }
-        ){
+        ) {
 
         }
     }
