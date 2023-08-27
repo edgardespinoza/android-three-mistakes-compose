@@ -22,7 +22,7 @@ fun Mistake1() {
     ){
         for (i in 1 .. 20){
             MyListItem(
-                scrollOffSet=scrollState.value.toFloat(),
+                scrollOffSet={scrollState.value.toFloat()},
                 modifier = Modifier.fillMaxWidth()
             )
         }
@@ -32,7 +32,7 @@ fun Mistake1() {
 
 @Composable
 fun MyListItem(
-    scrollOffSet: Float,
+    scrollOffSet: ()->Float,
     modifier: Modifier=Modifier
 ) {
     Text(
@@ -40,7 +40,7 @@ fun MyListItem(
         modifier = modifier
             .padding(32.dp)
             .graphicsLayer {
-                translationX = scrollOffSet
+                translationX = scrollOffSet()
             }
     )
 }
